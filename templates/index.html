@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Comercializadora IMPRAK</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <!-- Encabezado -->
+    <header>
+        <h1>IMPRAK</h1>
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#nosotros">Quiénes Somos</a>
+            <a href="#valores">Misión / Visión / Valores</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#ubicacion">Ubicación</a>
+        </nav>
+    </header>
+
+    <!-- Hero / Portada -->
+    <section class="hero" id="inicio" style="background-image: url('{{ url_for('static', filename='img/portada.jpg') }}');">
+        <h2>COMERCIALIZADORA IMPRAK</h2>
+    </section>
+    
+
+    <!-- Quiénes Somos -->
+    <section id="nosotros">
+        <h2>¿Quiénes Somos?</h2>
+        <div class="contenido">
+            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70" alt="Camiones">
+            <p>
+                Somos una empresa comprometida con la comercialización de materiales, equipos y herramientas para los sectores industrial, ferretero, construcción y tecnológico.  
+                Nos enfocamos en brindar soluciones integrales y productos de la más alta calidad a nuestros clientes.
+            </p>
+        </div>
+    </section>
+
+    <!-- Misión, Visión, Valores -->
+    <section id="valores">
+        <h2>Nuestros Pilares</h2>
+        <div class="valores">
+            <div>
+                <h3>MISIÓN</h3>
+                <p>Proveer productos y servicios de excelencia, generando relaciones duraderas con nuestros clientes.</p>
+            </div>
+            <div>
+                <h3>VISIÓN</h3>
+                <p>Ser una empresa líder reconocida a nivel nacional por su calidad y compromiso.</p>
+            </div>
+            <div>
+                <h3>VALORES</h3>
+                <p>Responsabilidad, honestidad, respeto, trabajo en equipo e innovación.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Productos y Servicios -->
+    <section id="servicios">
+        <h2>Productos y Servicios</h2>
+        <div class="servicios">
+            <div>Obra Civil</div>
+            <div>Ferretería</div>
+            <div>Tubos y Conexiones</div>
+            <div>Madera</div>
+            <div>Soldadura</div>
+            <div>Soluciones Ambientales</div>
+            <div>Electricidad</div>
+            <div>Seguridad Industrial</div>
+            <div>Tecnología</div>
+            <div>Oficinas y Sanitarios Portátiles</div>
+        </div>
+    </section>
+
+    <!-- Mapa de Ubicación -->
+    <section id="ubicacion">
+        <h2>Nuestra Ubicación</h2>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3732.5318808120124!2d-103.3918236!3d20.6737774!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428ad181f8ed0f3%3A0x42b24b72650a81df!2sGuadalajara%2C%20Jalisco!5e0!3m2!1ses!2smx!4v1700000000000"></iframe>
+    </section>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>© 2025 Comercializadora IMPRAK - Todos los derechos reservados</p>
+    </footer>
