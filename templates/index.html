@@ -9,18 +9,27 @@
 
     <!-- Encabezado -->
     <header>
-        <h1>IMPRAK</h1>
-        <nav>
+        <div class="navbar">
+          <div class="logo">
+            <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo">
+          </div>
+      
+          <nav class="nav-links" id="navLinks">
             <a href="#inicio">Inicio</a>
-            <a href="#nosotros">Quiénes Somos</a>
-            <a href="#valores">Misión / Visión / Valores</a>
+            <a href="#quienes">¿Quiénes somos?</a>
+            <a href="#pilares">Pilares</a>
             <a href="#servicios">Servicios</a>
             <a href="#ubicacion">Ubicación</a>
-        </nav>
+            <a href="#contacto">Contacto</a>
+          </nav>
+      
+          <div class="menu-toggle" id="menuToggle">☰</div>
+        </div>
     </header>
+      
 
     <!-- Hero / Portada -->
-    <section class="hero" id="inicio" style="background-image: url('{{ url_for('static', filename='img/portada.jpg') }}');">
+    <section class="hero" id="inicio" style="background-image: url('{{ url_for('static', filename='img/portada_imprak.png') }}');">
         <h2>COMERCIALIZADORA IMPRAK</h2>
     </section>
     
@@ -31,8 +40,16 @@
         <div class="contenido">
             <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70" alt="Camiones">
             <p>
-                Somos una empresa comprometida con la comercialización de materiales, equipos y herramientas para los sectores industrial, ferretero, construcción y tecnológico.  
-                Nos enfocamos en brindar soluciones integrales y productos de la más alta calidad a nuestros clientes.
+                Somos una empresa líder en la comercialización de productos importados y nacionales.
+                Dedicados a ofrecer productos de las mejores marcas que hay en el mercado. Se ha vuelto acreedor a
+                ser una empresa reconocida en la venta y distribución de productos, especialmente a industrias de
+                gasoductos de mayor influencia nacional e internacional, ofreciendo un servicio de calidad.
+                Avalamos importantes marcas de materiales y equipos en temas de seguridad industrial, tuberías
+                especiales y accesorios, soldaduras, equipos de instrumentación y control, entre otras categorías. Así
+                también contando con la distribución de las marcas de mayor auge en el ramo de construcción en
+                México como: CEMEX, SIMEC Y TERNIUM por mencionar algunos, con cobertura de suministro y
+                distribución a cualquier parte de la República Mexicana.
+                Generando confianza y satisfacción en nuestros clientes, Imprak siempre a tus servicios.
             </p>
         </div>
     </section>
@@ -74,12 +91,48 @@
     </section>
 
     <!-- Mapa de Ubicación -->
-    <section id="ubicacion">
-        <h2>Nuestra Ubicación</h2>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3732.5318808120124!2d-103.3918236!3d20.6737774!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428ad181f8ed0f3%3A0x42b24b72650a81df!2sGuadalajara%2C%20Jalisco!5e0!3m2!1ses!2smx!4v1700000000000"></iframe>
+    <section id="ubicacion" style="text-align:center; margin: 50px 0;">
+        <h2>📍 Nuestra ubicación</h2>
+        <p>Encuéntranos en Materials Construrama Suc. Insurgentes</p>
+    
+        <!-- Mapa de Google Maps embebido -->
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3737.365606069649!2d-99.18397182574844!3d20.4544570063115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1601afefd0233%3A0xb3655c24b83afc6a!2sMaterials%20Construrama%20Suc%20Insurgentes!5e0!3m2!1ses-419!2smx!4v1728211212003!5m2!1ses-419!2smx"
+            width="100%" 
+            height="400" 
+            style="border:0; border-radius: 15px; box-shadow: 0 0 10px rgba(0,0,0,0.2);" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    
+        <p style="margin-top:10px;">
+            <a href="https://maps.app.goo.gl/VSF8SNt3HMTeW2gF6" 
+               target="_blank"
+               style="text-decoration:none; color:#0b5ed7; font-weight:bold;">
+               🌎 Ver en Google Maps
+            </a>
+        </p>
     </section>
+    
+
+    <!-- Botón flotante de WhatsApp -->
+    <a href="https://wa.me/527721227998?text=Hola!%20Quisiera%20más%20información." 
+        class="whatsapp-float" 
+        target="_blank">
+        <img src="{{ url_for('static', filename='img/whatsapp_icon.png') }}" alt="WhatsApp">
+    </a>
 
     <!-- Pie de página -->
     <footer>
         <p>© 2025 Comercializadora IMPRAK - Todos los derechos reservados</p>
     </footer>
+</body>
+
+<!--Script para el menú-->
+<script>
+    document.getElementById('menuToggle').addEventListener('click', function() {
+      document.getElementById('navLinks').classList.toggle('active');
+    });
+</script>
+</html>
