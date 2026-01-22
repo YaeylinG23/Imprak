@@ -1,0 +1,172 @@
+{% extends 'base.html' %}
+
+{% block title %}Productos | IMPRAK{% endblock %}
+
+{% block content %}
+<section class="catalogo">
+
+  <!-- SIDEBAR -->
+  <aside class="catalogo-sidebar">
+    <h3>Categorías</h3>
+    <ul>
+      <li data-category="obra-civil" class="active">Obra Civil</li>
+      <li data-category="tuberias">Tuberías</li>
+      <li data-category="ferreteria">Ferretería</li>
+      <li data-category="pinturas">Pinturas</li>
+      <li data-category="seguridad">Seguridad Industrial</li>
+    </ul>
+  </aside>
+
+  <!-- PRODUCTOS -->
+  <div class="catalogo-productos">
+
+    <div class="producto-card" data-category="obra-civil"
+         data-name="Tubería Corrugada"
+         data-price="$1,250 MXN"
+         data-desc="Ductos flexibles de polietileno de alta resistencia."
+         data-measures="4”, 6”, 8”"
+         data-img="{{ url_for('static', filename='img/productos/tuberia.png') }}">
+      <img src="{{ url_for('static', filename='img/productos/tuberia.png') }}">
+      <h4>Tubería Corrugada</h4>
+    </div>
+
+    <div class="producto-card" data-category="obra-civil"
+         data-name="Varilla Corrugada"
+         data-price="$185 MXN"
+         data-desc="Acero corrugado de alta resistencia."
+         data-measures="3/8”, 1/2”, 5/8”"
+         data-img="{{ url_for('static', filename='img/productos/varilla.png') }}">
+      <img src="{{ url_for('static', filename='img/productos/varilla.png') }}">
+      <h4>Varillas</h4>
+    </div>
+
+    <div class="producto-card" data-category="obra-civil"
+         data-name="Tubería Corrugada"
+         data-price="$1,250 MXN"
+         data-desc="Ductos flexibles de polietileno de alta resistencia."
+         data-measures="4”, 6”, 8”"
+         data-img="{{ url_for('static', filename='img/productos/tuberia.png') }}">
+      <img src="{{ url_for('static', filename='img/productos/tuberia.png') }}">
+      <h4>Tubería Corrugada</h4>
+    </div>
+
+    <div class="producto-card" data-category="obra-civil"
+         data-name="Varilla Corrugada"
+         data-price="$185 MXN"
+         data-desc="Acero corrugado de alta resistencia."
+         data-measures="3/8”, 1/2”, 5/8”"
+         data-img="{{ url_for('static', filename='img/productos/varilla.png') }}">
+      <img src="{{ url_for('static', filename='img/productos/varilla.png') }}">
+      <h4>Varillas</h4>
+    </div>
+
+    <div class="producto-card" data-category="obra-civil"
+         data-name="Tubería Corrugada"
+         data-price="$1,250 MXN"
+         data-desc="Ductos flexibles de polietileno de alta resistencia."
+         data-measures="4”, 6”, 8”"
+         data-img="{{ url_for('static', filename='img/productos/tuberia.png') }}">
+      <img src="{{ url_for('static', filename='img/productos/tuberia.png') }}">
+      <h4>Tubería Corrugada</h4>
+    </div>
+
+    <div class="producto-card" data-category="obra-civil"
+         data-name="Varilla Corrugada"
+         data-price="$185 MXN"
+         data-desc="Acero corrugado de alta resistencia."
+         data-measures="3/8”, 1/2”, 5/8”"
+         data-img="{{ url_for('static', filename='img/productos/varilla.png') }}">
+      <img src="{{ url_for('static', filename='img/productos/varilla.png') }}">
+      <h4>Varillas</h4>
+    </div>
+
+  </div>
+</section>
+
+<div class="modal" id="productoModal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <img id="modalImg">
+    <h2 id="modalName"></h2>
+    <p id="modalDesc"></p>
+    <p><strong>Medidas:</strong> <span id="modalMeasures"></span></p>
+    <p class="precio" id="modalPrice"></p>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  // 🔒 AISLAMOS TODO AL CATÁLOGO
+  const catalogo = document.querySelector('.catalogo');
+
+  // Si no estamos en la página de catálogo, NO hace nada
+  if (!catalogo) return;
+
+  /* =========================
+     FILTRO POR CATEGORÍAS
+  ========================== */
+
+  const categoryItems = catalogo.querySelectorAll('.catalogo-sidebar li');
+  const products = catalogo.querySelectorAll('.producto-card');
+
+  categoryItems.forEach(item => {
+    item.addEventListener('click', () => {
+
+      // Estilo activo
+      categoryItems.forEach(i => i.classList.remove('active'));
+      item.classList.add('active');
+
+      const category = item.dataset.category;
+
+      products.forEach(product => {
+        product.style.display =
+          product.dataset.category === category ? 'block' : 'none';
+      });
+    });
+  });
+
+  /* =========================
+     MODAL DE PRODUCTO
+  ========================== */
+
+  const modal = document.getElementById('productoModal');
+  const modalImg = modal.querySelector('.modal-img');
+  const modalTitle = modal.querySelector('.modal-title');
+  const modalDesc = modal.querySelector('.modal-desc');
+  const modalPrice = modal.querySelector('.modal-price');
+  const modalSizes = modal.querySelector('.modal-sizes');
+  const closeModal = modal.querySelector('.close-modal');
+
+  products.forEach(product => {
+    product.addEventListener('click', () => {
+
+      modalImg.src = product.dataset.img;
+      modalTitle.textContent = product.dataset.title;
+      modalDesc.textContent = product.dataset.desc;
+      modalPrice.textContent = product.dataset.price;
+
+      modalSizes.innerHTML = '';
+      product.dataset.sizes.split(',').forEach(size => {
+        const li = document.createElement('li');
+        li.textContent = size.trim();
+        modalSizes.appendChild(li);
+      });
+
+      modal.classList.add('active');
+    });
+  });
+
+  closeModal.addEventListener('click', () => {
+    modal.classList.remove('active');
+  });
+
+  modal.addEventListener('click', e => {
+    if (e.target === modal) modal.classList.remove('active');
+  });
+
+});
+
+</script>
+
+{% endblock %}

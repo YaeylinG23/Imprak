@@ -1,0 +1,84 @@
+<!--Navbar-->
+{% extends 'base.html' %}
+
+{% block title %}Inicio | Comercializadora IMPRAK{% endblock %}
+
+{% block content %}
+
+<section class="contacto-container">
+
+    <!-- INFO -->
+    <div class="contacto-info">
+        <h2>Contáctanos</h2>
+        <p>
+            Déjanos tus datos y uno de nuestros asesores se pondrá en contacto contigo
+            para brindarte la mejor solución en materiales.
+        </p>
+        <p>
+            📍 Atención personalizada <br>
+            📞 Respuesta rápida vía WhatsApp <br>
+            🚚 Entregas confiables
+        </p>
+    </div>
+
+    <!-- FORM -->
+    <div class="contacto-form">
+        <h3>Formulario de contacto</h3>
+
+        <form method="POST">
+
+            <div class="form-group">
+                <label>Nombre completo</label>
+                <input type="text" name="nombre" placeholder="Tu nombre" required>
+            </div>
+
+            <div class="form-group">
+                <label>Teléfono / WhatsApp</label>
+                <input type="tel" name="telefono" placeholder="Ej. 55 1234 5678" required>
+            </div>
+
+            <div class="form-group">
+                <label>Correo electrónico</label>
+                <input type="email" name="correo" placeholder="correo@ejemplo.com">
+            </div>
+
+            <div class="form-group">
+                <label>Material que necesitas</label>
+                <select name="material" required>
+                    <option value="">Selecciona una opción</option>
+                    <option>Acero</option>
+                    <option>Cemento</option>
+                    <option>Malla</option>
+                    <option>Otro</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Ubicación (dirección o referencias)</label>
+                <textarea name="ubicacion" placeholder="Escribe tu ubicación"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Mensaje o descripción</label>
+                <textarea name="mensaje" placeholder="Cuéntanos qué necesitas"></textarea>
+            </div>
+
+            <button type="submit" class="btn-enviar">
+                Enviar información
+            </button>
+
+        </form>
+    </div>
+
+</section>
+
+<!--Footer-->
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.getElementById('menuToggle')?.addEventListener('click', function () {
+        document.getElementById('navLinks')?.classList.toggle('active');
+    });
+</script>
+{% endblock %}

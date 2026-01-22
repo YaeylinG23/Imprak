@@ -1,99 +1,198 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Comercializadora IMPRAK</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
+<!--Navbar-->
+{% extends 'base.html' %}
 
-    <!-- Encabezado -->
-    <header>
-        <div class="navbar">
-          <div class="logo">
-            <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo">
-          </div>
-      
-          <nav class="nav-links" id="navLinks">
-            <a href="#inicio">Inicio</a>
-            <a href="#quienes">¿Quiénes somos?</a>
-            <a href="#pilares">Pilares</a>
-            <a href="#servicios">Servicios</a>
-            <a href="#ubicacion">Ubicación</a>
-            <a href="#contacto">Contacto</a>
-          </nav>
-      
-          <div class="menu-toggle" id="menuToggle">☰</div>
+{% block title %}Inicio | Comercializadora IMPRAK{% endblock %}
+
+{% block content %}
+
+<!-- Hero / Portada -->
+<section class="hero-static" style="background-image: url('{{ url_for('static', filename='img/fondo.jpg') }}');">
+    <div class="overlay"></div>
+    <div class="hero-content">
+        <span class="hero-brand">IMPRAK</span>
+        <h1>
+            Materiales que<br>
+            Construyen el Progreso
+        </h1>
+        <p>
+            Comercializadora líder en materiales para construcción,
+            infraestructura y soluciones industriales.
+        </p>
+        <a href="{{ url_for('nosotros') }}" class="btn-hero">Conocer Más</a>
+    </div>
+</section>
+
+<!-- Productos y Servicios -->
+    <section class="productos-destacados">
+        <div class="productos-header">
+            <h2>Productos Destacados</h2>
         </div>
-    </header>
-      
+        <div class="productos-grid">
+            <div class="producto-card">
+            <img src="{{ url_for('static', filename='img/productos/Tuberia.png') }}" alt="TUBERÍA">
+            <h3>Tubería Corrugada</h3>
+            <p>Ductos flexibles con paredes anilladas fabricados en polietileno.</p>
+            </div>
 
-    <!-- Hero / Portada -->
-    <section class="hero" id="inicio" style="background-image: url('{{ url_for('static', filename='img/portada_imprak.png') }}');">
-        <h2>COMERCIALIZADORA IMPRAK</h2>
+            <div class="producto-card">
+            <img src="{{ url_for('static', filename='img/productos/Sanitaria.jpg') }}" alt="SANITARIA">
+            <h3>Tubería Sanitaria</h3>
+            <p>Sistemas de conducción fabricados en policloruro de vinilo rígido.</p>
+            </div>
+
+            <div class="producto-card">
+            <img src="{{ url_for('static', filename='img/productos/Cemento.jpg') }}" alt="CEMENTO">
+            <h3>Cemento</h3>
+            <p>Un ingrediente esencial para dar forma, firmeza y estabilidad a cualquier estructura.</p>
+            </div>
+
+            <div class="producto-card">
+            <img src="{{ url_for('static', filename='img/productos/Varillas.jpg') }}" alt="VARILLAS">
+            <h3>Varillas</h3>
+            <p>Barras de acero corrugado de alta resistencia.</p>
+            </div>
+
+            <div class="producto-card">
+            <img src="{{ url_for('static', filename='img/productos/Herrajes.jpg') }}" alt="TUBERÍA">
+            <h3>Herrajes</h3>
+            <p>Componentes metálicos diseñados para brindar firmeza y seguridad estructural.</p>
+            </div>
+
+            <div class="producto-card">
+            <img src="{{ url_for('static', filename='img/productos/Ferreteria.jpg') }}" alt="SANITARIA">
+            <h3>Ferretería</h3>
+            <p>Todo lo que necesitas para construir, reparar y mantener con confianza.</p>
+            </div>
+
+            <div class="producto-card">
+            <img src="{{ url_for('static', filename='img/productos/Pintura.jpg') }}" alt="CEMENTO">
+            <h3>Pintura</h3>
+            <p>Pinturas y recubrimientos que protegen, embellecen y prolongan la vida útil de tus superficies.</p>
+            </div>
+
+            <div class="producto-card">
+            <img src="{{ url_for('static', filename='img/productos/Seguridad.jpg') }}" alt="VARILLAS">
+            <h3>Seguridad</h3>
+            <p>Equipos diseñados para prevenir riesgos y cumplir con normas de seguridad industrial.</p>
+            </div>
+        </div>
+
+        <div class="btn-center">
+            <a href="{{ url_for('categorias') }}" class="btn-conocer">Conocer más</a>
+        </div>
     </section>
-    
 
-    <!-- Quiénes Somos -->
-    <section id="nosotros">
-        <h2>¿Quiénes Somos?</h2>
-        <div class="contenido">
-            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70" alt="Camiones">
+<!-- Experiencia -->
+<section class="about-inverted">
+    <div class="about-container">
+
+        <div class="about-image">
+            <img src="{{ url_for('static', filename='img/servicios/10.jpeg') }}" alt="Experiencia IMPRAK">
+        </div>
+
+        <div class="about-text">
+            <h2>Nuestra Experiencia</h2>
             <p>
-                Somos una empresa líder en la comercialización de productos importados y nacionales.
-                Dedicados a ofrecer productos de las mejores marcas que hay en el mercado. Se ha vuelto acreedor a
-                ser una empresa reconocida en la venta y distribución de productos, especialmente a industrias de
-                gasoductos de mayor influencia nacional e internacional, ofreciendo un servicio de calidad.
-                Avalamos importantes marcas de materiales y equipos en temas de seguridad industrial, tuberías
-                especiales y accesorios, soldaduras, equipos de instrumentación y control, entre otras categorías. Así
-                también contando con la distribución de las marcas de mayor auge en el ramo de construcción en
-                México como: CEMEX, SIMEC Y TERNIUM por mencionar algunos, con cobertura de suministro y
-                distribución a cualquier parte de la República Mexicana.
-                Generando confianza y satisfacción en nuestros clientes, Imprak siempre a tus servicios.
+                En IMPRAK contamos con una sólida trayectoria abasteciendo materiales para proyectos de gran escala en los sectores de construcción,
+                infraestructura e industria. Nuestra experiencia se respalda en la colaboración con clientes que desarrollan obras de alto impacto,
+                donde la calidad, la puntualidad y la confiabilidad son factores críticos.
+                <br><br>
+                Trabajamos con marcas líderes del mercado y procesos eficientes que nos permiten garantizar soluciones a la medida,
+                cumpliendo con los más altos estándares técnicos y operativos.
             </p>
+            <a href="{{ url_for('nosotros') }}" class="btn-conocer">Conocer más</a>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- Aliados -->
+<section class="partners">
+    <h2>Aliados Comerciales</h2>
+    <div class="partners-grid">
+        <!-- tarjetas -->
+        <div class="partner-card">
+            <div class="partner-logo">
+                <img src="{{ url_for('static', filename='img/empresas/Kingspan_Logo.png') }}" alt="Empresa 1">
+            </div>
+            <h3>KINGSPAN</h3>
+            <p>Proveedor estratégico</p>
+        </div>
+
+        <div class="partner-card">
+            <div class="partner-logo">
+                <img src="{{ url_for('static', filename='img/empresas/Tododren_Logo.png') }}" alt="Empresa 2">
+            </div>
+            <h3>TODODREN</h3>
+            <p>Aliado comercial</p>
+        </div>
+
+        <div class="partner-card">
+            <div class="partner-logo">
+                <img src="{{ url_for('static', filename='img/empresas/Ternium_Logo.png') }}" alt="Empresa 3">
+            </div>
+            <h3>TERNIUM</h3>
+            <p>Distribuidor autorizado</p>
+        </div>
+
+        <div class="partner-card">
+            <div class="partner-logo">
+                <img src="{{ url_for('static', filename='img/empresas/Cemex_Logo.png') }}" alt="Empresa 4">
+            </div>
+            <h3>CEMEX</h3>
+            <p>Cliente institucional</p>
+        </div>
+
+        <div class="partner-card">
+            <div class="partner-logo">
+                <img src="{{ url_for('static', filename='img/empresas/Simec_Logo.png') }}" alt="Empresa 5">
+            </div>
+            <h3>SIMEC</h3>
+            <p>Socio estratégico</p>
+        </div>
+
+    </div>
+</section>
+
+
+
+    <!--Sección para cotizaciones-->
+    <section class="cotizacion-section" id="cotizacion">
+        <div class="cotizacion-container">
+            <!-- Lado izquierdo -->
+            <div class="cotizacion-info">
+            <h2>Solicita tu cotización</h2>
+            <p>
+                Cuéntanos qué necesitas y uno de nuestros asesores
+                se pondrá en contacto contigo lo antes posible.
+            </p>
+            <ul>
+                <li>✔ Atención personalizada</li>
+                <li>✔ Materiales certificados</li>
+                <li>✔ Entrega confiable</li>
+            </ul>
+            </div>
+            <!-- Formulario -->
+            <form class="cotizacion-form">
+            <div class="form-grid">
+                <input type="text" placeholder="Nombre completo" required>
+                <input type="text" placeholder="Empresa (opcional)">
+                <input type="tel" placeholder="Teléfono / WhatsApp" required>
+                <input type="email" placeholder="Correo electrónico" required>
+            </div>
+            <textarea placeholder="¿Qué material necesitas?" required></textarea>
+            <textarea placeholder="Ubicación de entrega (dirección o referencias)"></textarea>
+            <button type="submit">Solicitar cotización</button>
+            </form>
         </div>
     </section>
 
-    <!-- Misión, Visión, Valores -->
-    <section id="valores">
-        <h2>Nuestros Pilares</h2>
-        <div class="valores">
-            <div>
-                <h3>MISIÓN</h3>
-                <p>Proveer productos y servicios de excelencia, generando relaciones duraderas con nuestros clientes.</p>
-            </div>
-            <div>
-                <h3>VISIÓN</h3>
-                <p>Ser una empresa líder reconocida a nivel nacional por su calidad y compromiso.</p>
-            </div>
-            <div>
-                <h3>VALORES</h3>
-                <p>Responsabilidad, honestidad, respeto, trabajo en equipo e innovación.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Productos y Servicios -->
-    <section id="servicios">
-        <h2>Productos y Servicios</h2>
-        <div class="servicios">
-            <div>Obra Civil</div>
-            <div>Ferretería</div>
-            <div>Tubos y Conexiones</div>
-            <div>Madera</div>
-            <div>Soldadura</div>
-            <div>Soluciones Ambientales</div>
-            <div>Electricidad</div>
-            <div>Seguridad Industrial</div>
-            <div>Tecnología</div>
-            <div>Oficinas y Sanitarios Portátiles</div>
-        </div>
-    </section>
 
     <!-- Mapa de Ubicación -->
     <section id="ubicacion" style="text-align:center; margin: 50px 0;">
         <h2>📍 Nuestra ubicación</h2>
-        <p>Encuéntranos en Materials Construrama Suc. Insurgentes</p>
+        <p>Encuéntranos en Materiales Construrama Suc. Insurgentes</p>
     
         <!-- Mapa de Google Maps embebido -->
         <iframe 
@@ -117,22 +216,18 @@
     
 
     <!-- Botón flotante de WhatsApp -->
-    <a href="https://wa.me/527721227998?text=Hola!%20Quisiera%20más%20información." 
+    <a href="https://wa.me/52443134081?text=Hola!%20Quisiera%20más%20información." 
         class="whatsapp-float" 
         target="_blank">
         <img src="{{ url_for('static', filename='img/whatsapp_icon.png') }}" alt="WhatsApp">
     </a>
 
-    <!-- Pie de página -->
-    <footer>
-        <p>© 2025 Comercializadora IMPRAK - Todos los derechos reservados</p>
-    </footer>
-</body>
+{% endblock %}
 
-<!--Script para el menú-->
+{% block extra_js %}
 <script>
-    document.getElementById('menuToggle').addEventListener('click', function() {
-      document.getElementById('navLinks').classList.toggle('active');
+    document.getElementById('menuToggle')?.addEventListener('click', function () {
+        document.getElementById('navLinks')?.classList.toggle('active');
     });
 </script>
-</html>
+{% endblock %}

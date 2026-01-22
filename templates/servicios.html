@@ -1,0 +1,19 @@
+<!--Navbar-->
+{% extends 'base.html' %}
+
+{% block title %}Inicio | Comercializadora IMPRAK{% endblock %}
+
+{% block content %}
+
+<!--INICIAR MI CODIGO-->
+
+<!--Footer-->
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.getElementById('menuToggle')?.addEventListener('click', function () {
+        document.getElementById('navLinks')?.classList.toggle('active');
+    });
+</script>
+{% endblock %}
